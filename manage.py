@@ -9,7 +9,7 @@ manager.add_command("runserver", Server(
     use_debugger=True,
     use_reloader=True,
     host='0.0.0.0')
-                   )
+)
 
 app.config['MONGODB_SETTINGS'] = {
     'db': 'alexa_appointments'
