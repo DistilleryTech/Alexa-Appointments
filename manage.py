@@ -6,10 +6,10 @@ app = Flask(__name__)
 manager = Manager(app)
 
 manager.add_command("runserver", Server(
-    use_debugger = True,
-    use_reloader = True,
-    host = '0.0.0.0')
-)
+    use_debugger=True,
+    use_reloader=True,
+    host='0.0.0.0')
+                   )
 
 app.config['MONGODB_SETTINGS'] = {
     'db': 'alexa_appointments'
