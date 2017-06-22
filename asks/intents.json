@@ -1,0 +1,25 @@
+{
+  "intents": [
+    {
+      "intent": "CuragoAppointmentIntent"
+    },
+    {
+      "intent": "CuragoAppointmentDateIntent",
+      "slots": [
+        {
+          "name": "begin_date",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "slots": [
+        {
+          "name": "begin_time",
+          "type": "AMAZON.Time"
+        }
+      ],
+      "intent": "CuragoAppointmentTimeIntent"
+    }
+  ]
+}
