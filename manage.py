@@ -1,8 +1,10 @@
 from flask import Flask
 from flask_script import Manager, Server
 from models import db
+from asks import blueprint
 
 app = Flask(__name__)
+app.register_blueprint(blueprint)
 manager = Manager(app)
 
 manager.add_command("runserver", Server(
