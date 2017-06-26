@@ -15,5 +15,15 @@ def appointment_date(begin_date):
 
 @ask.intent("CuragoAppointmentTimeIntent", convert={'begin_time': 'time'})
 def appointment_time(begin_time):
+    msg = render_template('end_date')
+    return question(msg)
+
+@ask.intent("CuragoAppointmentEndDateIntent", convert={'end_date': 'date'})
+def appointment_end_date(end_date):
+    msg = render_template('end_time')
+    return question(msg)
+
+@ask.intent("CuragoAppointmentEndTimeIntent", convert={'end_time': 'time'})
+def appointment_end_time(end_time):
     msg = render_template('created_succesfully')
     return statement(msg)

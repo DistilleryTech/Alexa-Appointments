@@ -2,3 +2,5 @@ welcome: 'What would ou like me to do?'
 created_succesfully: Your appointment was succesfully created. Good bye!
 date: 'On which date?'
 time: 'On which time?'
+end_date: 'When it should be stopped?'
+end_time: 'What time it should be ended?'
