@@ -40,6 +40,32 @@
           }
         ],
         "intent": "CuragoAppointmentEndTimeIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "begin_date",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "begin_time",
+          "type": "AMAZON.TIME"
+        }
+      ],
+      "intent": "CuragoAppointmentWithBeginDateAndTimeIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "end_date",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "end_time",
+          "type": "AMAZON.TIME"
+        }
+      ],
+      "intent": "CuragoAppointmentWithEndDateAndTimeIntent"
     }
   ]
 }
