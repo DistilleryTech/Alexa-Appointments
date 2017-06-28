@@ -28,14 +28,23 @@ def appointment_end_time(end_time):
     msg = render_template('created_succesfully')
     return statement(msg)
 
-@ask.intent("CuragoAppointmentWithBeginDateAndTimeIntent", convert={'begin_date': 'date', 'begin_time': 'time'})
+@ask.intent("CuragoAppointmentWithBeginDateAndTimeIntent",
+            convert={'begin_date': 'date', 'begin_time': 'time'})
 def appointment_with_begin_date(begin_date, begin_time):
     msg = render_template('end_date')
     print('CuragoAppointmentWithBeginDateAndTimeIntent', msg)
     return question(msg)
 
-@ask.intent("CuragoAppointmentWithEndDateAndTimeIntent", convert={'end_date': 'date', 'end_time': 'time'})
+@ask.intent("CuragoAppointmentWithEndDateAndTimeIntent",
+            convert={'end_date': 'date', 'end_time': 'time'})
 def appointment_with_end_date(end_date, end_time):
-    print('CuragoAppointmentWithEndDateAndTimeIntent', end_date, end_time)
+    msg = render_template('created_succesfully')
+    return statement(msg)
+
+@ask.intent("CuragoAppointmentWithFullDataIntent",
+            convert={'begin_date': 'date', 'begin_time': 'time',
+                     'end_date': 'date', 'end_time': 'time'})
+def appointment_with_end_date(begin_date, begin_time, end_date, end_time):
+    print(begin_date, begin_time, end_date, end_time)
     msg = render_template('created_succesfully')
     return statement(msg)
