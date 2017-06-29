@@ -1,5 +1,8 @@
 welcome: 'What would ou like me to do?'
-created_succesfully: Your appointment was succesfully created. Good bye!
+created_succesfully: |
+  Your appointment was succesfully created.
+  It will start {{ begin_date | humanize_date }} at {{ begin_time | humanize_time }}
+  and it will be ended  {{ end_date | humanize_date }} at {{ begin_time | humanize_time }}
 date: 'On which date?'
 time: 'On which time?'
 end_date: 'When it should be stopped?'
