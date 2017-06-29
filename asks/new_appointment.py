@@ -19,7 +19,7 @@ def appointment_date(begin_date):
 @ask.intent("CuragoAppointmentTimeIntent", convert={'begin_time': 'time'})
 def appointment_time(begin_time):
     session.attributes['begin_time'] = str(begin_time)
-    msg = render_template('end_date')
+    print(session.attributes['begin_time'])
     return question(msg)
 
 @ask.intent("CuragoAppointmentEndDateIntent", convert={'end_date': 'date'})
@@ -48,31 +48,48 @@ def appointment_end_time(end_time):
 @ask.intent("CuragoAppointmentWithBeginDateAndTimeIntent",
             convert={'begin_date': 'date', 'begin_time': 'time'})
 def appointment_with_begin_date(begin_date, begin_time):
-    # session.attributes['begin_date'] = begin_date
-    # session.attributes['begin_time'] = begin_time
+    session.attributes['begin_date'] = str(begin_date)
+    session.attributes['begin_time'] = str(begin_time)
     msg = render_template('end_date')
     return question(msg)
 
 @ask.intent("CuragoAppointmentWithEndDateAndTimeIntent",
             convert={'end_date': 'date', 'end_time': 'time'})
 def appointment_with_end_date(end_date, end_time):
-    # session.attributes['end_date'] = end_date
-    # session.attributes['end_time'] = end_time
-    msg = render_template('created_succesfully')
+    session.attributes['end_date'] = str(end_date)
+    session.attributes['end_time'] = str(end_time)
+    full_begin_date = session.attributes['begin_date'] + ' ' + session.attributes['begin_time']
+    full_end_date = session.attributes['end_date'] + ' ' + session.attributes['end_time']
+    full_begin_datetime = datetime.strptime(full_begin_date, '%Y-%m-%d %H:%M:%S')
+    full_end_datetime = datetime.strptime(full_end_date, '%Y-%m-%d %H:%M:%S')
+    appointment = Appointment(begin_date=full_begin_datetime, end_date=full_end_datetime)
+    appointment.save()
+    msg = render_template('created_succesfully',
+                          begin_date=appointment.begin_date.date(),
+                          begin_time=appointment.begin_date.time(),
+                          end_date=appointment.end_date.date(),
+                          end_time=appointment.end_date.time())
     return statement(msg)
 
 @ask.intent("CuragoAppointmentWithFullDataIntent",
             convert={'begin_date': 'date', 'begin_time': 'time',
                      'end_date': 'date', 'end_time': 'time'})
-def appointment_with_end_date(begin_date, begin_time, end_date, end_time):
-    ipdb.set_trace()
-    # session.attributes['begin_date'] = begin_date
-    # session.attributes['begin_time'] = begin_time
-    # session.attributes['end_date'] = end_date
-    # session.attributes['end_time'] = end_time
-    msg = render_template('created_succesfully')
-    # print(session.attributes['begin_date'], session.attributes['begin_time'],
-        #   session.attributes['end_date'], session.attributes['end_time'])
+def appointment_with_full_date(begin_date, begin_time, end_date, end_time):
+    session.attributes['begin_date'] = str(begin_date)
+    session.attributes['begin_time'] = str(begin_time)
+    session.attributes['end_date'] = str(end_date)
+    session.attributes['end_time'] = str(end_time)
+    full_begin_date = str(begin_date) + ' ' + str(begin_time)
+    full_end_date = str(end_date) + ' ' + str(end_time)
+    full_begin_datetime = datetime.strptime(full_begin_date, '%Y-%m-%d %H:%M:%S')
+    full_end_datetime = datetime.strptime(full_end_date, '%Y-%m-%d %H:%M:%S')
+    appointment = Appointment(begin_date=full_begin_datetime, end_date=full_end_datetime)
+    appointment.save()
+    msg = render_template('created_succesfully',
+                          begin_date=appointment.begin_date.date(),
+                          begin_time=appointment.begin_date.time(),
+                          end_date=appointment.end_date.date(),
+                          end_time=appointment.end_date.time())
     return statement(msg)
 
 @ask.intent("AMAZON.HelpIntent")
