@@ -1,5 +1,5 @@
 from . import (ask, session, render_template, question, statement,
-               Appointment, AppointmentForm)
+               Appointment, AppointmentForm, render_result)
 
 @ask.intent("CuragoAppointmentIntent")
 def create_appointment():

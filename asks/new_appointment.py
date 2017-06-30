@@ -37,12 +37,3 @@ def add_new_object(ownerName, collection_owner_name, object_start_date,
         return question('date')
     if object_start_time is None:
         return question('time')
-
-
-def render_result(form):
-    msg = render_template('created_succesfully',
-                          begin_date=appointment.begin_date.date(),
-                          begin_time=appointment.begin_date.time(),
-                          end_date=appointment.end_date.date(),
-                          end_time=appointment.end_date.time())
-    return statement(msg)
