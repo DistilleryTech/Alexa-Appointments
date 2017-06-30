@@ -1,2 +1,2 @@
 from models import Appointment
-from . import AppointmentForm
+from .appointment import AppointmentForm

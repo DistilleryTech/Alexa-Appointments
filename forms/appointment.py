@@ -20,9 +20,9 @@ class AppointmentForm:
         )
 
     def submit(self):
-        appointment = Appointment(
+        self.appointment = Appointment(
                 begin_date=self.begin_date,
                 end_date=self.end_date
         )
-        appointment.save()
+        self.appointment.save()
         return appointment
