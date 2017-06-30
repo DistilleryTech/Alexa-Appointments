@@ -1,7 +1,7 @@
 {
   "intents": [
     {
-      "intent": "CuragoAppointmentIntent"
+      "intent": "CMAppointmentIntent"
     },
     {
       "slots": [
@@ -10,7 +10,7 @@
           "type": "AMAZON.DATE"
         }
       ],
-      "intent": "CuragoAppointmentDateIntent"
+      "intent": "CMAppointmentDateIntent"
     },
     {
       "slots": [
@@ -19,7 +19,7 @@
           "type": "AMAZON.TIME"
         }
       ],
-      "intent": "CuragoAppointmentTimeIntent"
+      "intent": "CMAppointmentTimeIntent"
     },
     {
 
@@ -29,7 +29,7 @@
             "type": "AMAZON.DATE"
           }
         ],
-        "intent": "CuragoAppointmentEndDateIntent"
+        "intent": "CMAppointmentEndDateIntent"
     },
     {
 
@@ -39,7 +39,7 @@
             "type": "AMAZON.TIME"
           }
         ],
-        "intent": "CuragoAppointmentEndTimeIntent"
+        "intent": "CMAppointmentEndTimeIntent"
     },
     {
       "slots": [
@@ -52,7 +52,7 @@
           "type": "AMAZON.TIME"
         }
       ],
-      "intent": "CuragoAppointmentWithBeginDateAndTimeIntent"
+      "intent": "CMAppointmentWithBeginDateAndTimeIntent"
     },
     {
       "slots": [
@@ -65,7 +65,7 @@
           "type": "AMAZON.TIME"
         }
       ],
-      "intent": "CuragoAppointmentWithEndDateAndTimeIntent"
+      "intent": "CMAppointmentWithEndDateAndTimeIntent"
     },
     {
       "slots": [
@@ -86,7 +86,7 @@
           "type": "AMAZON.TIME"
         }
       ],
-      "intent": "CuragoAppointmentWithFullDataIntent"
+      "intent": "CMAppointmentWithFullDataIntent"
     },
     {
       "intent": "AMAZON.AddAction<object@Event>"

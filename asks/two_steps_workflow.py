@@ -1,7 +1,7 @@
 from . import (ask, session, render_template, question, statement,
                Appointment, AppointmentForm, render_result)
 
-@ask.intent("CuragoAppointmentWithBeginDateAndTimeIntent",
+@ask.intent("CMAppointmentWithBeginDateAndTimeIntent",
             convert={'begin_date': 'date', 'begin_time': 'time'})
 def appointment_with_begin_date(begin_date, begin_time):
     session.attributes['begin_date'] = str(begin_date)
@@ -9,7 +9,7 @@ def appointment_with_begin_date(begin_date, begin_time):
     msg = render_template('end_date')
     return question(msg)
 
-@ask.intent("CuragoAppointmentWithEndDateAndTimeIntent",
+@ask.intent("CMAppointmentWithEndDateAndTimeIntent",
             convert={'end_date': 'date', 'end_time': 'time'})
 def appointment_with_end_date(end_date, end_time):
     session.attributes['end_date'] = str(end_date)

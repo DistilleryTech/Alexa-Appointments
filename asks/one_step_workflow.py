@@ -1,7 +1,7 @@
 from . import (ask, session, render_template, question, statement,
                Appointment, AppointmentForm)
 
-@ask.intent("CuragoAppointmentWithFullDataIntent",
+@ask.intent("CMAppointmentWithFullDataIntent",
             convert={'begin_date': 'date', 'begin_time': 'time',
                      'end_date': 'date', 'end_time': 'time'})
 def appointment_with_full_date(begin_date, begin_time, end_date, end_time):
