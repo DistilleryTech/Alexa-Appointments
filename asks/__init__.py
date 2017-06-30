@@ -7,6 +7,7 @@ blueprint = Blueprint('blueprint_api', __name__, url_prefix="/")
 ask = Ask(blueprint=blueprint)
 
 def render_result(form):
+    """ render statement with appointment information """
     msg = render_template('created_succesfully',
                           begin_date=appointment.begin_date.date(),
                           begin_time=appointment.begin_date.time(),
