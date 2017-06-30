@@ -5,6 +5,11 @@ from . import (ask, session, render_template, question, statement,
             convert={'begin_date': 'date', 'begin_time': 'time',
                      'end_date': 'date', 'end_time': 'time'})
 def appointment_with_full_date(begin_date, begin_time, end_date, end_time):
+    """
+    Set all the necessary for appointment attributes;
+    Create new appointment and render result
+    """
+    
     session.attributes['begin_date'] = str(begin_date)
     session.attributes['begin_time'] = str(begin_time)
     session.attributes['end_date'] = str(end_date)
@@ -29,6 +34,14 @@ def add_new_object(ownerName, collection_owner_name, object_start_date,
                    object_type, object_name, object_start_time,
                    object_attendee_name, object_decription_type,
                    target_collection_type, object_event_type):
+    """
+        Override default Amazon intent.
+        WORK IN PROGRESS
+        TODO:
+            - add more conditions with asks about missing data
+            - rendere result message based on given information
+    """
+
     if object_start_date is None:
         return question('date')
     if object_start_time is None:
