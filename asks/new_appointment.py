@@ -33,13 +33,7 @@ def appointment_end_time(end_time):
     session.attributes['end_time'] = str(end_time)
     form = AppointmentForm(session.attributes)
     form.submit()
-    msg = render_template('created_succesfully',
-                          begin_date=form.appointment.begin_date.date(),
-                          begin_time=form.appointment.begin_date.time(),
-                          end_date=form.appointment.end_date.date(),
-                          end_time=form.appointment.end_date.time())
-    return statement(msg)
-
+    render_result(form)
 
 @ask.intent("CuragoAppointmentWithBeginDateAndTimeIntent",
             convert={'begin_date': 'date', 'begin_time': 'time'})
@@ -56,12 +50,7 @@ def appointment_with_end_date(end_date, end_time):
     session.attributes['end_time'] = str(end_time)
     form = AppointmentForm(session.attributes)
     form.submit()
-    msg = render_template('created_succesfully',
-                          begin_date=appointment.begin_date.date(),
-                          begin_time=appointment.begin_date.time(),
-                          end_date=appointment.end_date.date(),
-                          end_time=appointment.end_date.time())
-    return statement(msg)
+    render_result(form)
 
 @ask.intent("CuragoAppointmentWithFullDataIntent",
             convert={'begin_date': 'date', 'begin_time': 'time',
@@ -73,12 +62,7 @@ def appointment_with_full_date(begin_date, begin_time, end_date, end_time):
     session.attributes['end_time'] = str(end_time)
     form = AppointmentForm(session.attributes)
     form.submit()
-    msg = render_template('created_succesfully',
-                          begin_date=appointment.begin_date.date(),
-                          begin_time=appointment.begin_date.time(),
-                          end_date=appointment.end_date.date(),
-                          end_time=appointment.end_date.time())
-    return statement(msg)
+    render_result(form)
 
 @ask.intent("AMAZON.HelpIntent")
 def help_intent():
@@ -104,3 +88,12 @@ def add_new_object(ownerName, collection_owner_name, object_start_date,
         return question('date')
     if object_start_time is None:
         return question('time')
+
+
+def render_result(form):
+    msg = render_template('created_succesfully',
+                          begin_date=appointment.begin_date.date(),
+                          begin_time=appointment.begin_date.time(),
+                          end_date=appointment.end_date.date(),
+                          end_time=appointment.end_date.time())
+    return statement(msg)
