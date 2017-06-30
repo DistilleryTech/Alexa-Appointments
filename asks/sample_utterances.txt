@@ -1,0 +1,21 @@
+CMAppointmentIntent build a new item
+CMAppointmentIntent create a new item
+CMAppointmentDateIntent Begin it {begin_date}
+CMAppointmentDateIntent Start it {begin_date}
+CMAppointmentDateIntent Arrange it for {begin_date}
+CMAppointmentTimeIntent The time is {begin_time}
+CMAppointmentTimeIntent time is {begin_time}
+CMAppointmentEndDateIntent End date is {end_date}
+CMAppointmentEndDateIntent Stop it {end_date}
+CMAppointmentEndTimeIntent End time is {end_time}
+CMAppointmentWithBeginDateAndTimeIntent Create new item {begin_date} at {begin_time}
+CMAppointmentWithBeginDateAndTimeIntent Build new item on {begin_date} at {begin_time}
+CMAppointmentWithBeginDateAndTimeIntent Build new item {begin_date} at {begin_time}
+CMAppointmentWithBeginDateAndTimeIntent Create new item {begin_date} at {begin_time}
+CMAppointmentWithEndDateAndTimeIntent Stop it {end_date} at {end_time}
+CMAppointmentWithEndDateAndTimeIntent End it {end_date} at {end_time}
+
+CMAppointmentWithFullDataIntent Create new item {begin_date} at {begin_time} and stop it {end_date} at {end_time}
+CMAppointmentWithFullDataIntent Build new item {begin_date} at {begin_time} and end it {end_date} at {end_time}
+CMAppointmentWithFullDataIntent Make new item  from {begin_date} {begin_time} to {end_date} {end_time}
+CMAppointmentWithFullDataIntent Create new item with start date {begin_date} at {begin_time} and end date {end_date} at {end_time}
