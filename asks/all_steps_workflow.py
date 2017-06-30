@@ -21,6 +21,7 @@ def appointment_time(begin_time):
     """ Set appointment's begin_time; Pass to apppointment's end date """
 
     session.attributes['begin_time'] = str(begin_time)
+    msg = render_template('end_date')
     return question(msg)
 
 @ask.intent("CMAppointmentEndDateIntent", convert={'end_date': 'date'})
@@ -38,4 +39,4 @@ def appointment_end_time(end_time):
     session.attributes['end_time'] = str(end_time)
     form = AppointmentForm(session.attributes)
     form.submit()
-    render_result(form)
+    return render_result(form)

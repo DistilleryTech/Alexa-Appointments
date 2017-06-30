@@ -24,7 +24,6 @@ class AppointmentForm:
         self.end_date = datetime.strptime(
                 formatted_end_date, '%Y-%m-%d %H:%M:%S'
         )
-        return self
 
     def submit(self):
         """ Create and return new appointment """
@@ -34,4 +33,4 @@ class AppointmentForm:
                 end_date=self.end_date
         )
         self.appointment.save()
-        return appointment
+        return self.appointment
