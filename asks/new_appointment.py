@@ -1,10 +1,5 @@
-from flask import render_template
-from flask_ask import question, statement
-import ipdb
-from . import ask, session
-from models import Appointment
-from forms import  AppointmentForm
-from datetime import datetime
+from . import (ask, session, render_template, question, statement,
+               Appointment, AppointmentForm)
 
 @ask.intent("CuragoAppointmentIntent")
 def create_appointment():
