@@ -6,4 +6,4 @@ from forms import  AppointmentForm
 blueprint = Blueprint('blueprint_api', __name__, url_prefix="/")
 ask = Ask(blueprint=blueprint)
 
-from . import launch, new_appointment, all_steps_workflow
+from . import launch, new_appointment, all_steps_workflow, two_steps_workflow
