@@ -9,14 +9,14 @@ def appointment_with_full_date(begin_date, begin_time, end_date, end_time):
     Set all the necessary for appointment attributes;
     Create new appointment and render result
     """
-    
+
     session.attributes['begin_date'] = str(begin_date)
     session.attributes['begin_time'] = str(begin_time)
     session.attributes['end_date'] = str(end_date)
     session.attributes['end_time'] = str(end_time)
     form = AppointmentForm(session.attributes)
     form.submit()
-    render_result(form)
+    return render_result(form)
 
 @ask.intent("AMAZON.AddAction<object@Event>", mapping={
         'ownerName': 'object.owner.name',

@@ -26,4 +26,4 @@ def appointment_with_end_date(end_date, end_time):
     session.attributes['end_time'] = str(end_time)
     form = AppointmentForm(session.attributes)
     form.submit()
-    render_result(form)
+    return render_result(form)
