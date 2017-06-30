@@ -13,10 +13,6 @@ def appointment_with_full_date(begin_date, begin_time, end_date, end_time):
     form.submit()
     render_result(form)
 
-@ask.intent("AMAZON.HelpIntent")
-def help_intent():
-    return statement('help')
-
 @ask.intent("AMAZON.AddAction<object@Event>", mapping={
         'ownerName': 'object.owner.name',
         'collection_owner_name': 'targetCollection.owner.name',

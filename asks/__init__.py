@@ -14,4 +14,5 @@ def render_result(form):
                           end_time=appointment.end_date.time())
     return statement(msg)
 
-from . import launch, new_appointment, all_steps_workflow, two_steps_workflow
+from . import (launch, all_steps_workflow,
+               two_steps_workflow, one_step_workflow)

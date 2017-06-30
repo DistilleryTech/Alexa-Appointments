@@ -89,9 +89,6 @@
       "intent": "CuragoAppointmentWithFullDataIntent"
     },
     {
-      "intent": "AMAZON.HelpIntent"
-    },
-    {
       "intent": "AMAZON.AddAction<object@Event>"
     }
   ]
